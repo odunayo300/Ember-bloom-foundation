@@ -2,7 +2,7 @@ import { ImageWithFallback } from "./Figma/ImageWithFallBack"
 import { Heart, HandHeart, Users,Phone,X } from "lucide-react";
 import { Button } from "./Ui/button";
 
-export default function SupportSection({handleNavClick,isOpen,closeCall,openCall}:any){
+export default function SupportSection({isOpen,closeCall,openCall}:any){
   
 
 
@@ -110,9 +110,9 @@ export default function SupportSection({handleNavClick,isOpen,closeCall,openCall
                 Your support creates a lifeline for women in transition. Together, we can provide safe spaces, 
                 vital services, and opportunities that help women heal and start anew.
               </p>
-              <Button onClick={() => handleNavClick("contact")} className="bg-secondary hover:bg-secondary/90 text-white px-8 py-4 shadow-lg">
+              {/* <Button onClick={() => handleNavClick("contact")} className="bg-secondary hover:bg-secondary/90 text-white px-8 py-4 shadow-lg">
                 Partner With Us
-              </Button>
+              </Button> */}
             </div>
           </div>
           
@@ -163,14 +163,14 @@ export default function SupportSection({handleNavClick,isOpen,closeCall,openCall
               </p>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            {/* <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button onClick={() => handleNavClick("contact")} className="bg-accent hover:bg-accent/90 text-foreground px-8 py-4 shadow-lg">
                 Donate Today
               </Button>
               <Button onClick={() => handleNavClick("contact")} className="bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30 px-8 py-4">
                 Monthly Giving
               </Button>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

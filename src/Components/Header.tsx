@@ -54,7 +54,7 @@ export function Header({isMenuOpen,setIsMenuOpen,handleNavClick}:HeaderProps) {
                Exit App
             </Button>
             <Button
-             onClick={() =>handleNavClick("contact")}
+             
              className="bg-accent hover:bg-accent/90 text-foreground shadow-md hover:shadow-lg transition-all duration-300"
             >
               Donate Now
