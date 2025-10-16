@@ -92,14 +92,14 @@ export default function GetInvolvedSection({handleNavClick}:any) {
             })}
           </div>
           
-          {/* Additional engagement section */}
+          Additional engagement section
           <div className="mt-16 max-w-4xl mx-auto">
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
               <h3 className="text-xl text-white mb-4">Ready to make an impact?</h3>
               <p className="text-white/90 mb-6">Join our community of changemakers and help transform lives</p>
-              <Button onClick={() => handleNavClick("contact")} className="bg-white text-primary hover:bg-white/90 px-8 py-3">
+              {/* <Button onClick={() => handleNavClick("contact")} className="bg-white text-primary hover:bg-white/90 px-8 py-3">
                 Get Started Today
-              </Button>
+              </Button> */}
             </div>
           </div>
         </div>

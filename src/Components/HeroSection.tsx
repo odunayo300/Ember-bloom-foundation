@@ -1,6 +1,7 @@
 import { ImageWithFallback } from "./Figma/ImageWithFallBack"
 import ladiesHuggingTogether from "../assets/ladiesHuggingTogether.png"
 import { Button } from "./Ui/button"
+import { Link } from "react-router-dom"
 
 export default function HeroSection () {
     return(
@@ -52,7 +53,9 @@ export default function HeroSection () {
               <Button 
                 className="border-2 border-primary text-white hover:bg-secondary hover:text-white px-8 py-4 text-lg transition-all duration-300"
               >
-                Join Us → Be part of the change
+                <Link to={"Volunteer"}>
+                  Join Us → Be part of the change
+                </Link>
               </Button>
             </div>
           </div>

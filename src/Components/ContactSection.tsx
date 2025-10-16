@@ -183,7 +183,7 @@ export function ContactSection({isOpen,closeCall,openCall}:any) {
                     <Input 
                         id="fullName" 
                         placeholder="Enter your Name" 
-                        className="border-foreground/20 focus:ring-primary focus:border-transparent bg-white/80 placeholder:text-black"
+                        className="border-foreground/20 focus:ring-primary focus:border-transparent bg-white/80 placeholder:text-black "
                         required
                         value={fullName}
                         onChange={(e) => setFullName(e.target.value)}
@@ -199,7 +199,7 @@ export function ContactSection({isOpen,closeCall,openCall}:any) {
                             id="email" 
                             type="email" 
                             placeholder="your.email@example.com"
-                            className="border-foreground/20 focus:ring-primary focus:border-transparent bg-white/80 placeholder:text-black"
+                            className="border-foreground/20 focus:ring-primary focus:border-transparent bg-white/80 placeholder:text-black "
                             required
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
@@ -211,15 +211,20 @@ export function ContactSection({isOpen,closeCall,openCall}:any) {
                         <label htmlFor="subject" className="text-sm text-foreground/80">
                         Subject
                         </label>
-                        <Input 
-                            id="subject" 
-                            placeholder = "e.g donation, sponsorship e.t.c?"
-                            className="border-foreground/20 focus:ring-primary focus:border-transparent bg-white/80 placeholder:text-black"
-                            required
-                            value={subject}
-                            onChange={(e) => setSubject(e.target.value)}
-                            name="title"
-                        />
+                
+                        <select
+                          onChange={(e) => setSubject(e.target.value)}
+                          id="subject"
+                          name="title"
+                          required
+                          value={subject}
+                          className="w-full md:w-full block h-11 md:h-9 px-4 py-2 md:py-1 pr-10 rounded-md border border-foreground/20 bg-white/80 text-foreground text-base md:text-sm leading-6 focus:outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] transition-colors appearance-none"
+                        >
+                          <option value={" "}> </option>
+                          <option value={"Donation"}> Donation</option>
+                          <option value={"Sponsorship"}>Sponsorship</option>
+                          <option value={"Others"}> Others</option>
+                        </select>
                     </div>
 
                     <div className="space-y-2 mb-4">
