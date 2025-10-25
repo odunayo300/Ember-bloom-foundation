@@ -23,21 +23,24 @@ import { useState } from "react"
   }
 
 
-    // Smooth scroll function
+    // Enhanced smooth scroll function with offset for header
   const handleNavClick = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+      el.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
     }
     setIsMenuOpen(false); // Close mobile menu if open
   };
 
   return (
-    <div className ="min-h-screen bg-background">
+    <div className="min-h-screen bg-background w-full overflow-x-hidden">
           <Header 
-            isMenuOpen  = {isMenuOpen}
-            setIsMenuOpen = {setIsMenuOpen}
-            handleNavClick = {handleNavClick}
+            isMenuOpen={isMenuOpen}
+            setIsMenuOpen={setIsMenuOpen}
+            handleNavClick={handleNavClick}
           />
           <main>
             <HeroSection/>

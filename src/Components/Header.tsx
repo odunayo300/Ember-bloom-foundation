@@ -28,70 +28,119 @@ export function Header({isMenuOpen,setIsMenuOpen,handleNavClick}:HeaderProps) {
   }
 
   return (
-    <header  className="backdrop-blur-sm border-b sticky top-0 z-50 bg-primary border-border">
+    <header className="backdrop-blur-md sticky top-0 z-50 bg-primary/95 border-b border-white/10 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          {/* Enhanced Logo */}
-          <div className="flex items-center space-x-3">
-            <img 
-              src={logo} 
-              alt="Ember Bloom Foundation Logo" 
-              className="h-12 w-auto object-contain"
-            />
+          {/* Enhanced Logo with Shine Effect */}
+          <div className="flex items-center">
+            <div className="relative group overflow-hidden rounded-xl">
+              <img 
+                src={logo} 
+                alt="Ember Bloom Foundation Logo" 
+                className="h-14 w-auto object-contain transition-all duration-500 transform group-hover:scale-105 group-hover:brightness-110 filter drop-shadow-lg"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.08) 100%)',
+                  padding: '8px',
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000"></div>
+            </div>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <button onClick={() => handleNavClick("about")} className="text-white hover:text-white/80 transition-colors duration-300 py-2 bg-transparent border-none cursor-pointer">About</button>
-            <button onClick={() => handleNavClick("services")} className="text-white hover:text-white/80 transition-colors duration-300 py-2 bg-transparent border-none cursor-pointer">Our Work</button>
-            <button onClick={() => handleNavClick("get-involved")} className="text-white hover:text-white/80 transition-colors duration-300 py-2 bg-transparent border-none cursor-pointer">Get Involved</button>
-            <button onClick={() => handleNavClick("contact")} className="text-white hover:text-white/80 transition-colors duration-300 py-2 bg-transparent border-none cursor-pointer">Contact</button>
+          {/* Desktop Navigation with Underline Effect */}
+          <nav className="hidden md:flex items-center space-x-8 lg:space-x-12">
+            {[
+              { text: "About", id: "about" },
+              { text: "Our Work", id: "services" },
+              { text: "Get Involved", id: "get-involved" },
+              { text: "Contact", id: "contact" }
+            ].map(item => (
+              <button
+                key={item.id}
+                onClick={() => handleNavClick(item.id)}
+                className="group relative text-white py-2 px-3 bg-transparent border-none cursor-pointer overflow-hidden"
+              >
+                <span className="relative z-10 transition-colors duration-300 group-hover:text-white/90">{item.text}</span>
+                <div className="absolute bottom-0 left-0 w-full h-0.5 bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+              </button>
+            ))}
           </nav>
 
           {/* Enhanced CTA Buttons */}
-          <div className="hidden md:flex items-center space-x-3">
-            <Button onClick={exitApp} className="border-secondary bg-red-500 text-white hover:bg-secondary hover:text-white transition-all duration-300">
-               Exit App
+          <div className="hidden md:flex items-center space-x-3 lg:space-x-5 ml-4 lg:ml-8">
+            <Button 
+              onClick={exitApp} 
+              className="border border-white/20 bg-red-500/90 text-white hover:bg-red-600 hover:scale-[0.98] active:scale-95 shadow-md hover:shadow-lg transition-all duration-300"
+            >
+              Exit App
             </Button>
             <Button
-             
-             className="bg-accent hover:bg-accent/90 text-foreground shadow-md hover:shadow-lg transition-all duration-300"
+              className="bg-accent/90 hover:bg-accent text-foreground hover:scale-[0.98] active:scale-95 shadow-md hover:shadow-lg transition-all duration-300"
+              onClick={() => handleNavClick("contact")}
             >
               Donate Now
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button with Animation */}
           <Button
-            className="md:hidden p-2 text-white hover:text-white/80 transition-colors"
+            className="md:hidden p-2 text-white hover:text-white/90 transition-colors relative overflow-hidden group"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            <div className="relative z-10">
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </div>
+            <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded"></div>
           </Button>
         </div>
 
-        {/* Enhanced Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden py-6 border-t border-white/20">
-            <nav className="flex flex-col space-y-4">
-                <button onClick={() => handleNavClick("about")} className="text-white hover:text-white/80 transition-colors py-2 bg-transparent border-none cursor-pointer">About</button>
-                <button onClick={() => handleNavClick("services")} className="text-white hover:text-white/80 transition-colors py-2 bg-transparent border-none cursor-pointer">Our Work</button>
-                <button onClick={() => handleNavClick("get-involved")} className="text-white hover:text-white/80 transition-colors py-2 bg-transparent border-none cursor-pointer">Get Involved</button>
-                <button onClick={() => handleNavClick("contact")} className="text-white hover:text-white/80 transition-colors py-2 bg-transparent border-none cursor-pointer">Contact</button>
-              <div className="flex flex-col space-y-3 pt-4">
-                <Button onClick={exitApp} className="border-secondary bg-red-500 text-white hover:bg-secondary hover:text-white">
-                    Exit App
-                </Button>
-                <Button 
-                className="bg-accent hover:bg-accent/90 text-foreground"
-                onClick={() =>handleNavClick("contact")}
-                >
-                  Donate Now
-                </Button>
-              </div>
-            </nav>
-          </div>
-        )}
+        {/* Enhanced Mobile Menu with Backdrop Blur */}
+        <div
+          className="md:hidden border-t border-white/10 overflow-hidden backdrop-blur-md"
+          aria-hidden={!isMenuOpen}
+          role="region"
+          id="mobile-menu"
+          style={{
+            maxHeight: isMenuOpen ? 420 : 0,
+            transition: 'max-height 400ms cubic-bezier(0.4, 0, 0.2, 1), opacity 300ms ease',
+            opacity: isMenuOpen ? 1 : 0,
+          }}
+        >
+          <nav className="flex flex-col items-center px-4 py-4 space-y-1">
+            {[
+              { text: "About", id: "about", delay: "75" },
+              { text: "Our Work", id: "services", delay: "150" },
+              { text: "Get Involved", id: "get-involved", delay: "225" },
+              { text: "Contact", id: "contact", delay: "300" }
+            ].map(item => (
+              <button
+                key={item.id}
+                onClick={() => handleNavClick(item.id)}
+                className={`group relative w-full py-3 text-white text-center transition-all duration-300 
+                  ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}`}
+                style={{ transitionDelay: isMenuOpen ? `${item.delay}ms` : '0ms' }}
+              >
+                <span className="relative z-10 text-lg font-medium">{item.text}</span>
+                <div className="absolute inset-0 bg-white/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </button>
+            ))}
+
+            <div className="flex flex-col space-y-3 pt-4 w-full items-center mt-2">
+              <Button 
+                onClick={exitApp} 
+                className="w-11/12 border border-white/20 bg-red-500/90 text-white hover:bg-red-600 hover:scale-[0.98] active:scale-95 shadow-md transition-all duration-300"
+              >
+                Exit App
+              </Button>
+              <Button
+                className="w-11/12 bg-accent/90 hover:bg-accent text-foreground hover:scale-[0.98] active:scale-95 shadow-md transition-all duration-300"
+                onClick={() => handleNavClick("contact")}
+              >
+                Donate Now
+              </Button>
+            </div>
+          </nav>
+        </div>
       </div>
     </header>
   );
