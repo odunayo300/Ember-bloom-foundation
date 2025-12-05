@@ -1,6 +1,6 @@
 import { Button } from "./Ui/button";
 import { Menu, X } from "lucide-react";
-import logo from "../assets/emberLogoImage.png"
+import logo from "../assets/ember-bloom logo 2.jpg"
 
 type HeaderProps = {
   isMenuOpen: boolean;
@@ -10,8 +10,8 @@ type HeaderProps = {
 
 export function Header({isMenuOpen,setIsMenuOpen,handleNavClick}:HeaderProps) {
 
-  const exitApp = () =>{
-     const decoys = [
+  const exitApp = () =>{     //exit app to the weather incase a client tries to get involved with what the user is doing to avoid being dectectable 
+     const decoys = [ 
       "https://www.google.com/",
       "https://www.bbc.com/",
       "https://www.weather.com/",
@@ -28,22 +28,17 @@ export function Header({isMenuOpen,setIsMenuOpen,handleNavClick}:HeaderProps) {
   }
 
   return (
-    <header className="backdrop-blur-md sticky top-0 z-50 bg-primary/95 border-b border-white/10 shadow-lg">
+    <header className="backdrop-blur-md fixed top-0 left-0 right-0 z-50 bg-white/90 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          {/* Enhanced Logo with Shine Effect */}
+          {/* Logo */}
           <div className="flex items-center">
-            <div className="relative group overflow-hidden rounded-xl">
-              <img 
-                src={logo} 
-                alt="Ember Bloom Foundation Logo" 
-                className="h-14 w-auto object-contain transition-all duration-500 transform group-hover:scale-105 group-hover:brightness-110 filter drop-shadow-lg"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.08) 100%)',
-                  padding: '8px',
-                }}
+            <div className="bg-white/90 rounded-lg p-1">
+              <img
+                src={logo}
+                alt="Ember Bloom Foundation Logo"
+                className="h-24 w-auto object-contain transition-all duration-500 transform hover:scale-105 hover:brightness-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000"></div>
             </div>
           </div>
 
@@ -58,9 +53,9 @@ export function Header({isMenuOpen,setIsMenuOpen,handleNavClick}:HeaderProps) {
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className="group relative text-white py-2 px-3 bg-transparent border-none cursor-pointer overflow-hidden"
+                className="group relative text-foreground py-2 px-3 bg-transparent border-none cursor-pointer overflow-hidden"
               >
-                <span className="relative z-10 transition-colors duration-300 group-hover:text-white/90">{item.text}</span>
+                <span className="relative z-10 transition-colors duration-300 group-hover:text-accent">{item.text}</span>
                 <div className="absolute bottom-0 left-0 w-full h-0.5 bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
               </button>
             ))}
@@ -84,19 +79,19 @@ export function Header({isMenuOpen,setIsMenuOpen,handleNavClick}:HeaderProps) {
 
           {/* Mobile Menu Button with Animation */}
           <Button
-            className="md:hidden p-2 text-white hover:text-white/90 transition-colors relative overflow-hidden group"
+            className="md:hidden p-2 text-foreground hover:text-accent transition-colors relative overflow-hidden group"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <div className="relative z-10">
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </div>
-            <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded"></div>
+            <div className="absolute inset-0 bg-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded"></div>
           </Button>
         </div>
 
         {/* Enhanced Mobile Menu with Backdrop Blur */}
         <div
-          className="md:hidden border-t border-white/10 overflow-hidden backdrop-blur-md"
+          className="md:hidden border-t border-border overflow-hidden backdrop-blur-md"
           aria-hidden={!isMenuOpen}
           role="region"
           id="mobile-menu"
@@ -116,12 +111,12 @@ export function Header({isMenuOpen,setIsMenuOpen,handleNavClick}:HeaderProps) {
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`group relative w-full py-3 text-white text-center transition-all duration-300 
+                className={`group relative w-full py-3 text-foreground text-center transition-all duration-300
                   ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}`}
                 style={{ transitionDelay: isMenuOpen ? `${item.delay}ms` : '0ms' }}
               >
                 <span className="relative z-10 text-lg font-medium">{item.text}</span>
-                <div className="absolute inset-0 bg-white/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-accent/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
             ))}
 

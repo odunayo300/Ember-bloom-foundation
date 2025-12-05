@@ -130,7 +130,7 @@ We welcome contributions to improve Ember Bloom Foundation's digital presence. P
 
 This project is part of Ember Bloom Foundation's mission to support women in transition. Please contact us for usage permissions.
 
-##  Contact
+## 4 Contact
 
 - **Email**: emberbloomf@gmail.com
 - **WhatsApp**: +234 909 000 0904

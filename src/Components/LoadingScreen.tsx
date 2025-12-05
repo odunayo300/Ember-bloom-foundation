@@ -73,6 +73,9 @@ export function LoadingScreen() {
         <p className="text-white/80 text-sm font-light tracking-wider">
           Creating positive change
         </p>
+        <p className="text-accent text-base font-medium mt-2">
+          No Woman should walk alone
+        </p>
       </div>
 
       {/* Decorative elements */}
