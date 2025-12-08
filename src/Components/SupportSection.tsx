@@ -3,9 +3,6 @@ import { Heart, HandHeart, Users,Phone,X } from "lucide-react";
 import { Button } from "./Ui/button";
 
 export default function SupportSection({isOpen,closeCall,openCall}:any){
-  
-
-
     return(
         <>
          {isOpen && (

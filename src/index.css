@@ -216,3 +216,17 @@ html {
 .animate-slideDown {
   animation: slideDown 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+@keyframes exitBlink {
+  0%, 100% {
+    background-color: #ef4444; /* tailwind red-500 */
+  }
+  50% {
+    background-color: #e8b4b8; /* your --secondary color from :root */
+  }
+}
+
+/* Slight, noticeable blink between base red and hover (secondary). */
+.animate-exit-blink {
+  animation: exitBlink 1.2s ease-in-out infinite;
+}

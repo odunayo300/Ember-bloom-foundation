@@ -1,6 +1,6 @@
 import { Button } from "./Ui/button";
 import { Menu, X } from "lucide-react";
-import logo from "../assets/emberLogoImage.png"
+import logo from "../assets/ember-bloom-new-logo.svg"
 
 type HeaderProps = {
   isMenuOpen: boolean;
@@ -9,23 +9,6 @@ type HeaderProps = {
 };
 
 export function Header({isMenuOpen,setIsMenuOpen,handleNavClick}:HeaderProps) {
-
-  const exitApp = () =>{
-     const decoys = [
-      "https://www.google.com/",
-      "https://www.bbc.com/",
-      "https://www.weather.com/",
-      "https://www.amazon.com/",
-      "https://www.youtube.com/",
-      "https://www.imdb.com/",
-      "https://www.msn.com/",
-      "https://www.nytimes.com/"
-    ];
-
-    // pick a random decoy
-    const url = decoys[Math.floor(Math.random() * decoys.length)];
-    window.location.replace(url)
-  }
 
   return (
     <header  className="backdrop-blur-sm border-b sticky top-0 z-50 bg-primary border-border">
@@ -50,9 +33,9 @@ export function Header({isMenuOpen,setIsMenuOpen,handleNavClick}:HeaderProps) {
 
           {/* Enhanced CTA Buttons */}
           <div className="hidden md:flex items-center space-x-3">
-            <Button onClick={exitApp} className="border-secondary bg-red-500 text-white hover:bg-secondary hover:text-white transition-all duration-300">
+            {/* <Button onClick={exitApp} className="border-secondary bg-red-500 text-white hover:bg-secondary hover:text-white transition-all duration-300">
                Exit App
-            </Button>
+            </Button> */}
             <Button
              
              className="bg-accent hover:bg-accent/90 text-foreground shadow-md hover:shadow-lg transition-all duration-300"
@@ -79,9 +62,9 @@ export function Header({isMenuOpen,setIsMenuOpen,handleNavClick}:HeaderProps) {
                 <button onClick={() => handleNavClick("get-involved")} className="text-white hover:text-white/80 transition-colors py-2 bg-transparent border-none cursor-pointer">Get Involved</button>
                 <button onClick={() => handleNavClick("contact")} className="text-white hover:text-white/80 transition-colors py-2 bg-transparent border-none cursor-pointer">Contact</button>
               <div className="flex flex-col space-y-3 pt-4">
-                <Button onClick={exitApp} className="border-secondary bg-red-500 text-white hover:bg-secondary hover:text-white">
+                {/* <Button onClick={exitApp} className="border-secondary bg-red-500 text-white hover:bg-secondary hover:text-white">
                     Exit App
-                </Button>
+                </Button> */}
                 <Button 
                 className="bg-accent hover:bg-accent/90 text-foreground"
                 onClick={() =>handleNavClick("contact")}
