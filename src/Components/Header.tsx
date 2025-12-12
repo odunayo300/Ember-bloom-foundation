@@ -9,7 +9,6 @@ type HeaderProps = {
 };
 
 export function Header({isMenuOpen,setIsMenuOpen,handleNavClick}:HeaderProps) {
-
   return (
     <header  className="backdrop-blur-sm border-b sticky top-0 z-50 bg-primary border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
