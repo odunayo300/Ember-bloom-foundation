@@ -2,27 +2,43 @@ import { ImageWithFallback } from "./Figma/ImageWithFallBack";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-20" style={{ backgroundColor: '#FAF9F6' }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Image */}
-          <div className="relative">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden" style={{ background: 'linear-gradient(135deg, #C8A2C8, #F4C2C2)' }}>
+    <section data-reveal id="about" className="pt-8 pb-4 sm:py-12" style={{ backgroundColor: '#FAF9F6' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Image */}
+            <div className="relative">
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden" style={{ background: 'linear-gradient(135deg, #C8A2C8, #F4C2C2)' }}>
               <ImageWithFallback
                 src="https://images.unsplash.com/photo-1581802238095-7f7cdf64652f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxibG9vbWluZyUyMGZsb3dlcnMlMjBob3BlfGVufDF8fHx8MTc1ODA5MTU5OXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
                 alt="Blooming flowers representing hope and growth"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
               />
+              
+              {/* Overlay gradient on hover */}
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent 
+                opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-            <div className="absolute -bottom-4 -right-4 w-20 h-20 rounded-full shadow-lg flex items-center justify-center" style={{ backgroundColor: '#FAF9F6' }}>
-              <span className="text-3xl">🌸</span>
+            
+            {/* Animated flower emoji */}
+            <div className="absolute -bottom-4 -right-4 w-20 h-20 rounded-full shadow-lg 
+              flex items-center justify-center transform group-hover:rotate-12 
+              group-hover:scale-110 transition-all duration-500 cursor-pointer" 
+              style={{ backgroundColor: '#FAF9F6' }}
+            >
+              <span className="text-3xl animate-bounce-gentle">🌸</span>
             </div>
+            
+            {/* Decorative corner accents */}
+            <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-primary/10 
+              transform -rotate-45 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+            <div className="absolute -bottom-4 -right-20 w-16 h-16 rounded-full bg-secondary/10 
+              transform rotate-45 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
           </div>
 
           {/* Content */}
           <div className="space-y-8">
             <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl" style={{ color: '#444444' }}>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl" style={{ color: '#444444' }}>
                 🌸 Who We Are
               </h2>
               

@@ -43,22 +43,25 @@ import { useState } from "react"
   const handleNavClick = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+      el.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
     }
     setIsMenuOpen(false); // Close mobile menu if open
   };
 
   return (
-    <div className ="min-h-screen bg-background">
+    <div className ="min-h-screen bg-background w-full overflow-x-hidden">
       <button onClick={exitApp}
        className= "fixed right-4 top-1/2 z-50 -translate-y-1/2 border-secondary bg-red-500 text-white hover:bg-secondary hover:text-white px-4 py-2 rounded-full shadow-lg animate-exit-blink"
       >
         Quick Exit
       </button>
           <Header 
-            isMenuOpen  = {isMenuOpen}
-            setIsMenuOpen = {setIsMenuOpen}
-            handleNavClick = {handleNavClick}
+            isMenuOpen={isMenuOpen}
+            setIsMenuOpen={setIsMenuOpen}
+            handleNavClick={handleNavClick}
           />
           <main>
             <HeroSection/>

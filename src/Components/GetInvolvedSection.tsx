@@ -28,7 +28,7 @@ export default function GetInvolvedSection({handleNavClick}:any) {
   ];
 
   return (
-    <section id="get-involved" className="py-24 bg-primary text-white relative overflow-hidden">
+  <section data-reveal id="get-involved" className="py-24 bg-primary text-white relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/95 to-primary/90"></div>
       <div className="absolute top-0 left-0 w-full h-full opacity-10">
         <div className="absolute top-32 left-32 w-48 h-48 rounded-full bg-white/20 blur-3xl"></div>
@@ -40,10 +40,10 @@ export default function GetInvolvedSection({handleNavClick}:any) {
           <div className="inline-block px-6 py-3 bg-white/20 rounded-full text-sm text-white/90 mb-6">
             Join Our Mission
           </div>
-          <h2 className="text-4xl md:text-5xl mb-6 leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl mb-6 leading-tight">
             Be Part of Her Journey
           </h2>
-          <p className="text-xl leading-relaxed max-w-3xl mx-auto text-white/90">
+          <p className="text-lg sm:text-xl leading-relaxed max-w-3xl mx-auto text-white/90">
             Volunteer, partner, or donate—every action helps women rebuild their futures.
           </p>
         </div>
@@ -53,13 +53,19 @@ export default function GetInvolvedSection({handleNavClick}:any) {
           {involvementOptions.map((option, index) => {
             const IconComponent = option.icon;
             return (
-              <div key={index} className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center space-y-6 hover:bg-white/15 transition-all duration-300 group">
-                <div className="w-20 h-20 mx-auto rounded-2xl bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <IconComponent className="w-10 h-10 text-white" />
-                </div>
-                <div className="space-y-4">
-                  <h3 className="text-2xl text-white">{option.title}</h3>
-                  <p className="leading-relaxed text-white/90">
+                        <div key={index} data-reveal className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center space-y-6 hover:bg-white/15 transition-all duration-300 group">
+                          <div className="w-20 h-20 mx-auto rounded-2xl bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                            <IconComponent className="w-10 h-10 text-white" />
+                          </div>
+                
+                {/* Content with hover effects */}
+                <div className="space-y-4 relative z-10">
+                  <h3 className="text-2xl text-white transform group-hover:scale-105 
+                    transition-transform duration-300">
+                    {option.title}
+                  </h3>
+                  <p className="leading-relaxed text-white/90 group-hover:text-white 
+                    transition-colors duration-300">
                     {option.description}
                   </p>
                 </div>

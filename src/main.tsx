@@ -1,6 +1,7 @@
 
 import { createRoot } from 'react-dom/client'
 import './index.css'
+import './utils/scrollReveal'
 import App from './App.tsx'
 import { BrowserRouter } from 'react-router-dom'
 

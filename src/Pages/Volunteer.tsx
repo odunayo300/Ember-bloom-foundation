@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import logo from '../assets/emberLogoImage.png'
+import logo from '../assets/ember-bloom logo 2.jpg'
 import { Button } from "../Components/Ui/button"
 
 export default function Volunteer() {

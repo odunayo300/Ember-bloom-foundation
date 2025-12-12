@@ -2,6 +2,7 @@ import { Button } from "./Ui/button";
 import { Menu, X } from "lucide-react";
 import logo from "../assets/ember-bloom-new-logo.svg"
 
+
 type HeaderProps = {
   isMenuOpen: boolean;
   setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -11,45 +12,62 @@ type HeaderProps = {
 export function Header({isMenuOpen,setIsMenuOpen,handleNavClick}:HeaderProps) {
 
   return (
-    <header  className="backdrop-blur-sm border-b sticky top-0 z-50 bg-primary border-border">
+    <header className="backdrop-blur-md fixed top-0 left-0 right-0 z-50 bg-white/90 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          {/* Enhanced Logo */}
-          <div className="flex items-center space-x-3">
-            <img 
-              src={logo} 
-              alt="Ember Bloom Foundation Logo" 
-              className="h-12 w-auto object-contain"
-            />
+          {/* Logo */}
+          <div className="flex items-center">
+            <div className="bg-white/90 rounded-lg p-1">
+              <img
+                src={logo}
+                alt="Ember Bloom Foundation Logo"
+                className="h-24 w-auto object-contain transition-all duration-500 transform hover:scale-105 hover:brightness-110"
+              />
+            </div>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <button onClick={() => handleNavClick("about")} className="text-white hover:text-white/80 transition-colors duration-300 py-2 bg-transparent border-none cursor-pointer">About</button>
-            <button onClick={() => handleNavClick("services")} className="text-white hover:text-white/80 transition-colors duration-300 py-2 bg-transparent border-none cursor-pointer">Our Work</button>
-            <button onClick={() => handleNavClick("get-involved")} className="text-white hover:text-white/80 transition-colors duration-300 py-2 bg-transparent border-none cursor-pointer">Get Involved</button>
-            <button onClick={() => handleNavClick("contact")} className="text-white hover:text-white/80 transition-colors duration-300 py-2 bg-transparent border-none cursor-pointer">Contact</button>
+          {/* Desktop Navigation with Underline Effect */}
+          <nav className="hidden md:flex items-center space-x-8 lg:space-x-12">
+            {[
+              { text: "About", id: "about" },
+              { text: "Our Work", id: "services" },
+              { text: "Get Involved", id: "get-involved" },
+              { text: "Contact", id: "contact" }
+            ].map(item => (
+              <button
+                key={item.id}
+                onClick={() => handleNavClick(item.id)}
+                className="group relative text-foreground py-2 px-3 bg-transparent border-none cursor-pointer overflow-hidden"
+              >
+                <span className="relative z-10 transition-colors duration-300 group-hover:text-accent">{item.text}</span>
+                <div className="absolute bottom-0 left-0 w-full h-0.5 bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+              </button>
+            ))}
           </nav>
 
           {/* Enhanced CTA Buttons */}
           <div className="hidden md:flex items-center space-x-3">
-            {/* <Button onClick={exitApp} className="border-secondary bg-red-500 text-white hover:bg-secondary hover:text-white transition-all duration-300">
+            {/* <Button 
+              onClick={exitApp} className="border-secondary bg-red-500 text-white hover:bg-secondary hover:text-white transition-all duration-300">
                Exit App
             </Button> */}
             <Button
-             
-             className="bg-accent hover:bg-accent/90 text-foreground shadow-md hover:shadow-lg transition-all duration-300"
+              className="bg-accent/90 hover:bg-accent text-foreground hover:scale-[0.98] active:scale-95 shadow-md hover:shadow-lg transition-all duration-300"
+              onClick={() => handleNavClick("contact")}
             >
               Donate Now
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button with Animation */}
           <Button
-            className="md:hidden p-2 text-white hover:text-white/80 transition-colors"
+            className="md:hidden p-2 text-foreground hover:text-accent transition-colors relative overflow-hidden group"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            <div className="relative z-10">
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </div>
+            <div className="absolute inset-0 bg-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded"></div>
           </Button>
         </div>
 
