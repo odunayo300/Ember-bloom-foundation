@@ -12,7 +12,24 @@ import { useState } from "react"
 
  export default function Home() {
      const [isMenuOpen, setIsMenuOpen] = useState(false);
-   const [isOpen,setIsOpen] = useState(false)
+    const [isOpen,setIsOpen] = useState(false)
+
+    const exitApp = () => {
+     const decoys = [
+      "https://www.google.com/",
+      "https://www.bbc.com/",
+      "https://www.weather.com/",
+      "https://www.amazon.com/",
+      "https://www.youtube.com/",
+      "https://www.imdb.com/",
+      "https://www.msn.com/",
+      "https://www.nytimes.com/"
+    ];
+
+    // pick a random decoy
+    const url = decoys[Math.floor(Math.random() * decoys.length)];
+    window.location.replace(url)
+  }
 
   const openCall = () =>{
     setIsOpen(true)
@@ -22,8 +39,7 @@ import { useState } from "react"
     setIsOpen(false)
   }
 
-
-    // Enhanced smooth scroll function with offset for header
+    // Smooth scroll function
   const handleNavClick = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
@@ -36,7 +52,12 @@ import { useState } from "react"
   };
 
   return (
-    <div className="min-h-screen bg-background w-full overflow-x-hidden">
+    <div className ="min-h-screen bg-background w-full overflow-x-hidden">
+      <button onClick={exitApp}
+       className= "fixed right-4 top-1/2 z-50 -translate-y-1/2 border-secondary bg-red-500 text-white hover:bg-secondary hover:text-white px-4 py-2 rounded-full shadow-lg animate-exit-blink"
+      >
+        Quick Exit
+      </button>
           <Header 
             isMenuOpen={isMenuOpen}
             setIsMenuOpen={setIsMenuOpen}

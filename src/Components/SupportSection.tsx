@@ -2,17 +2,7 @@ import { ImageWithFallback } from "./Figma/ImageWithFallBack"
 import { Heart, HandHeart, Users,Phone,X } from "lucide-react";
 import { Button } from "./Ui/button";
 
-type SupportSectionProps = {
-  isOpen?: boolean;
-  closeCall?: () => void;
-  openCall?: () => void;
-  handleNavClick?: (id: string) => void;
-};
-
-export default function SupportSection({isOpen, closeCall, openCall, handleNavClick}: SupportSectionProps) {
-  
-
-
+export default function SupportSection({isOpen,closeCall,openCall}:any){
     return(
         <>
          {isOpen && (

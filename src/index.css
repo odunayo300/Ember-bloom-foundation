@@ -239,154 +239,16 @@ html {
   animation: slideDown 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@keyframes shine {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(100%);
-  }
-}
-.animate-shine {
-  animation: shine 1.5s linear infinite;
-}
-
-@keyframes float {
+@keyframes exitBlink {
   0%, 100% {
-    transform: translateY(0);
+    background-color: #ef4444; /* tailwind red-500 */
   }
   50% {
-    transform: translateY(-10px);
-  }
-}
-.animate-float {
-  animation: float 4s ease-in-out infinite;
-}
-
-@keyframes float-slow {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-15px);
-  }
-}
-.animate-float-slow {
-  animation: float-slow 6s ease-in-out infinite;
-}
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-.animate-gradient {
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
-}
-
-@keyframes dash {
-  to {
-    stroke-dashoffset: 0;
+    background-color: #e8b4b8; /* your --secondary color from :root */
   }
 }
 
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes float-fast {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes bounce-gentle {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-}
-
-@keyframes pulse-slow {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.5;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.7;
-  }
-}
-
-/* Reveal animations for sections */
-[data-reveal="stat"] {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-[data-reveal="stat"].visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-[data-reveal="involvement"] {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-[data-reveal="involvement"].visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-[data-reveal="story"] {
-  opacity: 0;
-  transform: translateX(-30px);
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-[data-reveal="story"].visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-[data-reveal="image"] {
-  opacity: 0;
-  transform: scale(0.95);
-  transition: all 0.9s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-[data-reveal="image"].visible {
-  opacity: 1;
-  transform: scale(1);
+/* Slight, noticeable blink between base red and hover (secondary). */
+.animate-exit-blink {
+  animation: exitBlink 1.2s ease-in-out infinite;
 }

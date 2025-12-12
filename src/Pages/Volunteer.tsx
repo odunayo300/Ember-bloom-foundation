@@ -3,7 +3,6 @@ import logo from '../assets/ember-bloom logo 2.jpg'
 import { Button } from "../Components/Ui/button"
 
 export default function Volunteer() {
-
   return (
     <div>
       <header className="backdrop-blur-sm border-b sticky top-0 z-50 bg-primary border-border">

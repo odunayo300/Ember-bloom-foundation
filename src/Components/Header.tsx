@@ -1,6 +1,7 @@
 import { Button } from "./Ui/button";
 import { Menu, X } from "lucide-react";
-import logo from "../assets/ember-bloom logo 2.jpg"
+import logo from "../assets/ember-bloom-new-logo.svg"
+
 
 type HeaderProps = {
   isMenuOpen: boolean;
@@ -9,23 +10,6 @@ type HeaderProps = {
 };
 
 export function Header({isMenuOpen,setIsMenuOpen,handleNavClick}:HeaderProps) {
-
-  const exitApp = () =>{     //exit app to the weather incase a client tries to get involved with what the user is doing to avoid being dectectable 
-     const decoys = [ 
-      "https://www.google.com/",
-      "https://www.bbc.com/",
-      "https://www.weather.com/",
-      "https://www.amazon.com/",
-      "https://www.youtube.com/",
-      "https://www.imdb.com/",
-      "https://www.msn.com/",
-      "https://www.nytimes.com/"
-    ];
-
-    // pick a random decoy
-    const url = decoys[Math.floor(Math.random() * decoys.length)];
-    window.location.replace(url)
-  }
 
   return (
     <header className="backdrop-blur-md fixed top-0 left-0 right-0 z-50 bg-white/90 shadow-lg">
@@ -62,13 +46,11 @@ export function Header({isMenuOpen,setIsMenuOpen,handleNavClick}:HeaderProps) {
           </nav>
 
           {/* Enhanced CTA Buttons */}
-          <div className="hidden md:flex items-center space-x-3 lg:space-x-5 ml-4 lg:ml-8">
-            <Button 
-              onClick={exitApp} 
-              className="border border-white/20 bg-red-500/90 text-white hover:bg-red-600 hover:scale-[0.98] active:scale-95 shadow-md hover:shadow-lg transition-all duration-300"
-            >
-              Exit App
-            </Button>
+          <div className="hidden md:flex items-center space-x-3">
+            {/* <Button 
+              onClick={exitApp} className="border-secondary bg-red-500 text-white hover:bg-secondary hover:text-white transition-all duration-300">
+               Exit App
+            </Button> */}
             <Button
               className="bg-accent/90 hover:bg-accent text-foreground hover:scale-[0.98] active:scale-95 shadow-md hover:shadow-lg transition-all duration-300"
               onClick={() => handleNavClick("contact")}
@@ -89,53 +71,28 @@ export function Header({isMenuOpen,setIsMenuOpen,handleNavClick}:HeaderProps) {
           </Button>
         </div>
 
-        {/* Enhanced Mobile Menu with Backdrop Blur */}
-        <div
-          className="md:hidden border-t border-border overflow-hidden backdrop-blur-md"
-          aria-hidden={!isMenuOpen}
-          role="region"
-          id="mobile-menu"
-          style={{
-            maxHeight: isMenuOpen ? 420 : 0,
-            transition: 'max-height 400ms cubic-bezier(0.4, 0, 0.2, 1), opacity 300ms ease',
-            opacity: isMenuOpen ? 1 : 0,
-          }}
-        >
-          <nav className="flex flex-col items-center px-4 py-4 space-y-1">
-            {[
-              { text: "About", id: "about", delay: "75" },
-              { text: "Our Work", id: "services", delay: "150" },
-              { text: "Get Involved", id: "get-involved", delay: "225" },
-              { text: "Contact", id: "contact", delay: "300" }
-            ].map(item => (
-              <button
-                key={item.id}
-                onClick={() => handleNavClick(item.id)}
-                className={`group relative w-full py-3 text-foreground text-center transition-all duration-300
-                  ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}`}
-                style={{ transitionDelay: isMenuOpen ? `${item.delay}ms` : '0ms' }}
-              >
-                <span className="relative z-10 text-lg font-medium">{item.text}</span>
-                <div className="absolute inset-0 bg-accent/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </button>
-            ))}
-
-            <div className="flex flex-col space-y-3 pt-4 w-full items-center mt-2">
-              <Button 
-                onClick={exitApp} 
-                className="w-11/12 border border-white/20 bg-red-500/90 text-white hover:bg-red-600 hover:scale-[0.98] active:scale-95 shadow-md transition-all duration-300"
-              >
-                Exit App
-              </Button>
-              <Button
-                className="w-11/12 bg-accent/90 hover:bg-accent text-foreground hover:scale-[0.98] active:scale-95 shadow-md transition-all duration-300"
-                onClick={() => handleNavClick("contact")}
-              >
-                Donate Now
-              </Button>
-            </div>
-          </nav>
-        </div>
+        {/* Enhanced Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden py-6 border-t border-white/20">
+            <nav className="flex flex-col space-y-4">
+                <button onClick={() => handleNavClick("about")} className="text-white hover:text-white/80 transition-colors py-2 bg-transparent border-none cursor-pointer">About</button>
+                <button onClick={() => handleNavClick("services")} className="text-white hover:text-white/80 transition-colors py-2 bg-transparent border-none cursor-pointer">Our Work</button>
+                <button onClick={() => handleNavClick("get-involved")} className="text-white hover:text-white/80 transition-colors py-2 bg-transparent border-none cursor-pointer">Get Involved</button>
+                <button onClick={() => handleNavClick("contact")} className="text-white hover:text-white/80 transition-colors py-2 bg-transparent border-none cursor-pointer">Contact</button>
+              <div className="flex flex-col space-y-3 pt-4">
+                {/* <Button onClick={exitApp} className="border-secondary bg-red-500 text-white hover:bg-secondary hover:text-white">
+                    Exit App
+                </Button> */}
+                <Button 
+                className="bg-accent hover:bg-accent/90 text-foreground"
+                onClick={() =>handleNavClick("contact")}
+                >
+                  Donate Now
+                </Button>
+              </div>
+            </nav>
+          </div>
+        )}
       </div>
     </header>
   );
