@@ -140,7 +140,10 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
@@ -201,6 +204,25 @@
 
 html {
   font-size: var(--font-size);
+  line-height: 1.6;
+}
+
+/* Enhanced smooth scrolling for in-page navigation */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Account for fixed header */
+  text-rendering: optimizeLegibility;
+}
+
+/* Reveal on scroll helpers */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 420ms cubic-bezier(0.2,0,0,1), transform 420ms cubic-bezier(0.2,0,0,1);
+}
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @keyframes slideDown {

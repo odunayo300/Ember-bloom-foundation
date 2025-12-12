@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom"
-import logo from '../assets/emberLogoImage.png'
+import logo from '../assets/ember-bloom-new-logo.svg'
 import { Button } from "../Components/Ui/button"
 
 export default function Volunteer() {
   return (
     <div>
-      <header className="backdrop-blur-sm border-b sticky top-0 z-50 bg-primary border-border">
+      <header className="backdrop-blur-md fixed top-0 left-0 right-0 z-50 bg-white/90 shadow-lg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex justify-between items-center py-4">
                    {/* Enhanced Logo */}

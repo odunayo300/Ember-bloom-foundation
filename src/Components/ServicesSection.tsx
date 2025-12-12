@@ -32,14 +32,14 @@ export function ServicesSection() {
   ];
 
   return (
-    <section id="about" className="py-24 bg-background">
+    <section data-reveal id="about" className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-20">
           <div className="inline-block px-6 py-3 bg-primary/10 rounded-full text-sm text-primary mb-6">
             About Ember Bloom Foundation
           </div>
-          <h2 className="text-4xl md:text-5xl mb-6 text-foreground">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl mb-6 text-foreground">
             Healing • Justice • Empowerment • Community
           </h2>
           <div className="w-32 h-1 mx-auto bg-gradient-to-r from-primary to-secondary rounded-full"></div>
@@ -48,11 +48,11 @@ export function ServicesSection() {
         {/* About Us Content */}
         <div className="mb-20 space-y-12">
           <div className="text-center max-w-5xl mx-auto space-y-8">
-            <p className="text-xl leading-relaxed text-foreground">
+            <p className="text-lg sm:text-xl leading-relaxed text-foreground">
               <strong className="text-primary">Ember Bloom Foundation for Women's Growth and Empowerment</strong> is a survivor-led nonprofit organization.
             </p>
-            <p className="text-lg leading-relaxed text-foreground/80 max-w-4xl mx-auto">
-              We walk alongside women navigating transitions such as separation, divorce, widowhood, or recovery from domestic violence. 
+            <p className="text-base sm:text-lg leading-relaxed text-foreground/80 max-w-4xl mx-auto">
+              We walk alongside women navigating transitions such as separation, divorce, widowhood, or recovery from domestic violence.
               With compassion and understanding, we provide the tools, support, and community needed to move from survival to growth.
             </p>
             <div className="max-w-3xl mx-auto">
@@ -65,7 +65,7 @@ export function ServicesSection() {
           {/* Mission Statement - Enhanced Pull Quote Style */}
           <div className="text-center my-16">
             <div className="max-w-3xl mx-auto p-10 bg-gradient-to-r from-primary/5 via-secondary/5 to-primary/5 rounded-3xl border border-primary/20 shadow-lg">
-              <blockquote className="text-3xl md:text-4xl italic text-primary leading-relaxed">
+              <blockquote className="text-2xl sm:text-3xl md:text-4xl italic text-primary leading-relaxed">
                 "Restoring dignity. Rebuilding futures."
               </blockquote>
               <div className="w-16 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-6 rounded-full"></div>
@@ -74,7 +74,7 @@ export function ServicesSection() {
 
           {/* Vision Statement */}
           <div className="text-center">
-            <p className="text-xl italic leading-relaxed max-w-3xl mx-auto text-foreground/80">
+            <p className="text-lg sm:text-xl italic leading-relaxed max-w-3xl mx-auto text-foreground/80">
               A world where every woman survivor can heal, grow, and thrive.
             </p>
           </div>
